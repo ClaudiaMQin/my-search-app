@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ricerca con Vertex AI</title>
+</head>
+<body>
+
+    <gen-search-widget
+        configId="af04d62a-f984-4c5b-a45c-a07a2313298f"
+        triggerId="searchWidgetTrigger">
+    </gen-search-widget>
+
+    <input placeholder="Cerca qui" id="searchWidgetTrigger" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const widget = document.querySelector('gen-search-widget');
+        
+            widget.addEventListener('widget-loaded', () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const query = urlParams.get('query');
+        
+                if (query) {
+                    // Chiama il metodo .search() del widget con la query.
+                    widget.search(query);
+                }
+            });
+        });
+    </script>
+    
+    <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
+
+</body>
+</html>
