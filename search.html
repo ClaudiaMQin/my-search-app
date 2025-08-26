@@ -6,31 +6,25 @@
 <body>
 
     <gen-search-widget
-        configId="970d3e68-6b95-4327-9b77-ed2821fc5870"
-        triggerId="searchWidgetTrigger">
+        configId="970d3e68-6b95-4327-9b77-ed2821fc5870">
     </gen-search-widget>
-
-    <input placeholder="Cerca qui" id="searchWidgetTrigger" />
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('query');
+            const widget = document.querySelector('gen-search-widget');
         
-            if (query) {
-                // Trova il campo di input che apre il widget
-                const searchInput = document.getElementById('searchWidgetTrigger');
+            widget.addEventListener('widget-loaded', () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const query = urlParams.get('query');
         
-                // Imposta il suo valore sulla query dall'URL
-                if (searchInput) {
-                 searchInput.value = query;
+                if (query) {
+                    widget.search(query);
                 }
-            }
+            });
         });
     </script>
-    
+
     <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
 
 </body>
-
 </html>
