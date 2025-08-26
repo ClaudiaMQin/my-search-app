@@ -14,17 +14,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const widget = document.querySelector('gen-search-widget');
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
         
-            widget.addEventListener('widget-loaded', () => {
-                const urlParams = new URLSearchParams(window.location.search);
-                const query = urlParams.get('query');
+            if (query) {
+                // Trova il campo di input che apre il widget
+                const searchInput = document.getElementById('searchWidgetTrigger');
         
-                if (query) {
-                    // Chiama il metodo .search() del widget con la query.
-                    widget.search(query);
+                // Imposta il suo valore sulla query dall'URL
+                if (searchInput) {
+                    searchInput.value = query;
                 }
-            });
+            }
         });
     </script>
     
