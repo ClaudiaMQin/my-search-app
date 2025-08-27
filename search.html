@@ -1,42 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistenza risoluzione ticket QI-TMSC </title>
-    <link rel="stylesheet" href="../static/style.css">
+    <title>Ricerca con Vertex AI</title>
 </head>
-
 <body>
 
-    <nav>
-        <ul>
-            <li class="logo-container">
-                <img src="https://storage.cloud.google.com/qintesi-dev-reporting-documentazione-ams-webapp/Logo/Qintesi_logo.png"
-                    alt="Logo Qintesi">
-            </li>
-            <li><a href="#" id="SearchLink">Ricerca documentazione</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <h2>Assistenza risoluzione ticket QI-TMSC</h2>
-        <h3>Cerca le tue risposte con il nostro widget di ricerca</h3>
-    
-        <label for="searchWidgetTrigger">Documentazione per risoluzione ticket</label><br>
-        
-        <gen-search-widget configId="d01e71bc-cb92-4c86-8009-13890975c123" triggerId="searchWidgetTrigger">
-        </gen-search-widget>
+    <gen-search-widget
+        configId="970d3e68-6b95-4327-9b77-ed2821fc5870"
+        triggerId="searchWidgetTrigger">
+    </gen-search-widget>
 
-        <input placeholder="Cerca qui" id="searchWidgetTrigger" />
+    <input placeholder="Cerca qui" id="searchWidgetTrigger" />
 
-        <div class="footer-text">
-            <h3>Come funziona? <br> </h3> 
-            <p>Attraverso il widget di ricerca si possono ricavare le informazioni all'interno delle seguenti fonti:<br>   - Documentazione Interna<br>   - Storico mail risolutive</p>
-        </div>
-    </div>
-    
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -50,25 +25,15 @@
                 if (searchInput) {
                     searchInput.value = query;
 
-                    // Simula un click per aprire il widget
+                    // Simula un click per aprire il widget e avviare la ricerca
                     searchInput.click();
-
-                    // Dà un piccolo ritardo per permettere al widget di caricarsi
-                    setTimeout(() => {
-                        // Trova la barra di ricerca all'interno del widget e la compila
-                        const searchBox = document.querySelector('gen-search-widget').shadowRoot.querySelector('input[type="search"]');
-                        if (searchBox) {
-                            searchBox.value = query;
-                        }
-                    }, 500); // 500 millisecondi di ritardo
                 }
             }
         });
     </script>
-
+    
     <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
-    <script src="../static/index.js"></script>
 
 </body>
-
 </html>
+
