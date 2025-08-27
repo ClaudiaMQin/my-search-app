@@ -4,38 +4,46 @@
     <title>Ricerca con Vertex AI</title>
 </head>
 <body>
-  <gen-search-widget
+    <gen-search-widget
         configId="970d3e68-6b95-4327-9b77-ed2821fc5870"
         triggerId="searchWidgetTrigger">
     </gen-search-widget>
-  
+
     <input placeholder="Cerca qui" id="searchWidgetTrigger" />
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
+            // Logica per il widget di ricerca
             const urlParams = new URLSearchParams(window.location.search);
             const query = urlParams.get('query');
             
             if (query) {
-                // Trova il campo di input che apre il widget
                 const searchInput = document.getElementById('searchWidgetTrigger');
-
-                // Imposta il suo valore sulla query dall'URL
+                
                 if (searchInput) {
                     searchInput.value = query;
-
-                    // Simula un click per aprire il widget e avviare la ricerca
                     searchInput.click();
                 }
             }
+
+            // Logica per mostrare/nascondere le sezioni (dal tuo index.js)
+            const AssistentLink = document.getElementById('AssistentLink');
+            const mainContent = document.querySelector('.container');
+            const AssistentContent = document.getElementById('AssistentContent');
+
+            if (AssistentLink && mainContent && AssistentContent) {
+                AssistentLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    mainContent.style.display = 'none';
+                    AssistentContent.style.display = 'flex';
+                });
+            }
         });
     </script>
-    
-    <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
 
+    <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
 </body>
 </html>
-
 
 
 
