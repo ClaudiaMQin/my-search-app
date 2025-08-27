@@ -12,27 +12,9 @@
 
     <input placeholder="Cerca qui" id="searchWidgetTrigger" />
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('query');
-            
-            if (query) {
-                // Trova il campo di input che apre il widget
-                const searchInput = document.getElementById('searchWidgetTrigger');
-
-                // Imposta il suo valore sulla query dall'URL
-                if (searchInput) {
-                    searchInput.value = query;
-
-                    // Simula un click per aprire il widget e avviare la ricerca
-                    searchInput.click();
-                }
-            }
-        });
-    </script>
     
     <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
 
 </body>
 </html>
+
