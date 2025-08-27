@@ -18,25 +18,18 @@
             const query = urlParams.get('query');
             
             if (query) {
-                // Trova il campo di input che apre il widget
+                // Simula il click sul campo per far apparire il widget
                 const searchInput = document.getElementById('searchWidgetTrigger');
-
-                // Imposta il suo valore sulla query dall'URL
                 if (searchInput) {
-                    searchInput.value = query;
-
-                    // Simula un click per aprire il widget
                     searchInput.click();
-
-                    // Dà un piccolo ritardo per permettere al widget di caricarsi
-                    setTimeout(() => {
-                        // Trova la barra di ricerca all'interno del widget e la compila
-                        const searchBox = document.querySelector('gen-search-widget').shadowRoot.querySelector('input[type="search"]');
-                        if (searchBox) {
-                            searchBox.value = query;
-                        }
-                    }, 500); // 500 millisecondi di ritardo
                 }
+
+                // Trova il widget e attendi che sia pronto
+                const widget = document.querySelector('gen-search-widget');
+                widget.addEventListener('widget-loaded', () => {
+                    // Passa la query direttamente al metodo 'search' del widget
+                    widget.search(query);
+                });
             }
         });
     </script>
