@@ -1,50 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ricerca con Vertex AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; padding: 20px;
+            background-color: #f4f6f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        header img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 0;
+        }
+        header p {
+            color: #666;
+            margin-top: 5px;
+            font-size: 1rem;
+            max-width: 500px;
+        }
+        #searchWidgetTrigger {
+            width: 300px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        gen-search-widget {
+            width: 100%;
+            max-width: 700px;
+        }
+    </style>
 </head>
 <body>
+
+    <header>
+        <img src="https://storage.googleapis.com/qintesi-dev-reporting-documentazione-ams-webapp/Logo/Qintesi_logo.png" alt="Logo Azienda" />
+        <div>
+            <h1>Ricerca con Vertex AI</h1>
+            <p>Utilizza la nostra applicazione di ricerca basata su Vertex AI per trovare rapidamente le informazioni che ti servono.</p>
+        </div>
+    </header>
+
+    <input placeholder="Cerca qui" id="searchWidgetTrigger" />
+
     <gen-search-widget
         configId="970d3e68-6b95-4327-9b77-ed2821fc5870"
         triggerId="searchWidgetTrigger">
     </gen-search-widget>
 
-    
-    <input placeholder="Cerca qui" id="searchWidgetTrigger" />
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // Logica per il widget di ricerca
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('query');
-            
-            if (query) {
-                const searchInput = document.getElementById('searchWidgetTrigger');
-                
-                if (searchInput) {
-                    searchInput.value = query;
-                    searchInput.click();
-                }
-            }
-
-            // Logica per mostrare/nascondere le sezioni (dal tuo index.js)
-            const AssistentLink = document.getElementById('AssistentLink');
-            const mainContent = document.querySelector('.container');
-            const AssistentContent = document.getElementById('AssistentContent');
-
-            if (AssistentLink && mainContent && AssistentContent) {
-                AssistentLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    mainContent.style.display = 'none';
-                    AssistentContent.style.display = 'flex';
-                });
-            }
-        });
-    </script>
-
     <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
+
 </body>
 </html>
+
 
 
 
