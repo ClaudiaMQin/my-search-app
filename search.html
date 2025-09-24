@@ -59,6 +59,31 @@
         gen-search-widget {
             width: 100%;
         }
+        .datastore-info {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .datastore-info h2 {
+            color: #004aad;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .datastore-info p, .datastore-info li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .datastore-info ul {
+            padding-left: 20px;
+            margin: 10px 0 20px;
+        }
         footer {
             margin-top: auto;
             padding: 20px;
@@ -77,18 +102,38 @@
             Trova rapidamente soluzioni ai ticket di supporto usando il nostro motore di ricerca potenziato da Vertex AI.
         </p>
     </header>
-
+<main>
     <input placeholder="Cerca qui" id="searchWidgetTrigger" />
 
     <gen-search-widget
         configId="970d3e68-6b95-4327-9b77-ed2821fc5870"
         triggerId="searchWidgetTrigger">
     </gen-search-widget>
+</main>
+     <section class="datastore-info">
+        <h2>Fonti dei dati</h2>
+        <p>
+            Il motore di ricerca AI utilizza diversi <strong>datastore</strong> per fornire risposte accurate e aggiornate. Le fonti attualmente incluse sono:
+        </p>
+        <ul>
+            <li><strong>Documento risoluzione ticket</strong>: documentazione contenente risoluzione di qualche ticket ripetitivo.</li>
+            <li><strong>Documento modulo FI</strong>: documentazione contenente risoluzione di qualche ticket ripetitivo modulo FI.</li>
+            <li><strong>Ordinicessories flows UK_CCL products and Accessories flows</strong>: manuale utente.</li>
+            <li><strong>Manuale conto trasformazione</strong></li>
+        </ul>
+        <p>
+            Queste fonti vengono aggiornate regolarmente per garantire la massima precisione nella risoluzione dei problemi.
+        </p>
+    </section>
 
+    <footer>
+        © 2025 Assistenza AI — Tutti i diritti riservati.
+    </footer>
     <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=it"></script>
 
 </body>
 </html>
+
 
 
 
